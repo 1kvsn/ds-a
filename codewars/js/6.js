@@ -40,6 +40,33 @@ function isPangram(string){
 }
 
 // ---------------------------------------------------------
+// Replace With Alphabet Position
+// https://www.codewars.com/kata/546f922b54af40e1e90001da
+
+function alphabetPosition(text) {
+	const alphabets = 'abcdefghijklmnopqrstuvwxyz';
+	const textArr = text.toLowerCase().split(" ").join("").split("");
+	const result = [];
+
+	textArr.forEach((elm,i) => {
+			if (isValidLetter(elm)) {
+					result.push(alphabets.indexOf(elm) + 1)
+			}
+	})
+
+	return result.join(" ")
+}
+
+function isValidLetter(str) {     
+	if (str.match(/[a-z]/i)) { 
+				return true;     
+	}     
+	return false;   
+}
+
+// alphabetPosition("The sunset sets at twelve o' clock.")
+// alphabetPosition("The narwhal bacons at midnight.")
+
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 // ---------------------------------------------------------
