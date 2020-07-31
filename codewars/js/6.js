@@ -68,8 +68,68 @@ function isValidLetter(str) {
 // alphabetPosition("The narwhal bacons at midnight.")
 
 // ---------------------------------------------------------
+// Bouncing Balls
+// https://www.codewars.com/kata/5544c7a5cb454edb3c000047
+
+function bouncingBall(h,  bounce,  window) {
+	if( !(h > 0) || bounce < 0 || bounce >= 1 || !(window < h) ) return -1;
+
+	let count = 0;
+
+	while (h>window) {
+			// falling increment
+			count = count + 1;
+			h =  h * bounce;
+			// bounce increment
+			count = count + 1
+	}
+	return count - 1;
+}
+
+// bouncingBall(3.0, 0.66, 1.5) // 3
+// bouncingBall(30.0, 0.66, 1.5) // 15
 // ---------------------------------------------------------
+// Count characters in your string
+// https://www.codewars.com/kata/52efefcbcdf57161d4000091
+
+function count (string) {  
+	if(!string) return {};
+	const result = {};
+
+	for(let i=0; i<string.length; i++) {
+		if (!result[string[i]]) {
+			result[string[i]] =  1;
+		} else {
+				result[string[i]]++;
+		}
+	}
+ return result;
+}
+
+// count("aba"), { a: 2, b: 1 }
 // ---------------------------------------------------------
+// Make ChessBoard (eloquent lesson 2)
+
+function printChessboard(size) {
+	let line = " ";
+	// handles the line
+	for(let counterOne = 1; counterOne<=size; counterOne = counterOne + 1) {
+			
+			// handles the characters on a line.
+			for(let counterTwo = 1; counterTwo<=size; counterTwo = counterTwo + 1) {
+					if((counterOne + counterTwo) % 2 === 0) {
+							line = line + "#"
+					} else {
+							line = line + " ";
+					}
+			}
+			// once a line is built, changes into new line
+			line = line + "\n";
+	}
+	console.log(line)
+}
+
+printChessboard(8)
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 // ---------------------------------------------------------
