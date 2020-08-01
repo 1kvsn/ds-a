@@ -108,29 +108,7 @@ function count (string) {
 
 // count("aba"), { a: 2, b: 1 }
 // ---------------------------------------------------------
-// Make ChessBoard (eloquent lesson 2)
 
-function printChessboard(size) {
-	let line = " ";
-	// handles the line
-	for(let counterOne = 1; counterOne<=size; counterOne = counterOne + 1) {
-			
-			// handles the characters on a line.
-			for(let counterTwo = 1; counterTwo<=size; counterTwo = counterTwo + 1) {
-					if((counterOne + counterTwo) % 2 === 0) {
-							line = line + "#"
-					} else {
-							line = line + " ";
-					}
-			}
-			// once a line is built, changes into new line
-			line = line + "\n";
-	}
-	console.log(line)
-}
-
-printChessboard(8)
-// ---------------------------------------------------------
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 // ---------------------------------------------------------
