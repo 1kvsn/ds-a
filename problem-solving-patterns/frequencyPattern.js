@@ -1,3 +1,7 @@
+// not an official name
+// this pattern uses objects or sets to collect values/frequencies of values
+// this can often avoid the need for nested loops or O(n^2) operations with arrays/strings
+
 // naive method
 
 function same(arr1, arr2){
@@ -16,6 +20,9 @@ function same(arr1, arr2){
 }
 
 same([1,2,3,2], [9,1,4,4])
+
+// Big-O is O(n^2)
+// Reason: Inside for-loop, we've indexOf method which is iterating through the array as well.
 
 ================================================
 
@@ -50,4 +57,47 @@ function same(arr1, arr2){
     return true
 }
 
+// Big-O is O(n)
+// Reason: There is no nested loops here.
+
 same([1,2,3,2,5], [9,1,4,4,11])
+
+===============================================
+
+// my own approach
+
+function same(arr1, arr2) {
+    if(arr1.length !== arr2.length) return false;
+  
+    let count = {};
+  
+    // count elements in arr2;
+    for(let elm of arr2) {
+      if(count[elm]) {
+        count[elm] = count[elm] + 1;;
+      } else {
+        count[elm] = 1;
+      }
+    }
+  
+    // square all elements of arr1 and save them
+    let squaredArr1 = arr1.map(elm => elm ** 2);
+  
+    // compare squaredArr1 and arr2
+  
+    for(let element of squaredArr1) {
+      if(count[element]) {
+        count[element]--;
+      } else {
+        return false;
+      }
+    }
+  
+    return Object.values(count).reduce((acc,val) => acc+val) === 0 ? true : false;
+  }
+  
+  // same([1,2,3], [4,1,9]) // true
+  same([1,2,1], [4,4,1]) // false
+
+  // Big-O is O(n)
+  // Reason: no nested loop here :)
