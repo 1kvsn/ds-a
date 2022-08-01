@@ -108,8 +108,49 @@ function count (string) {
 
 // count("aba"), { a: 2, b: 1 }
 // ---------------------------------------------------------
+// https://www.codewars.com/kata/55eeddff3f64c954c2000059/
 
+function sumConsecutives(s) {
+	let result = [];
+	let temp = 0;
+
+	for(let i=0; i<=s.length; i++) {
+			// when no consecutive
+			if(s[i] !== s[i+1]) {
+					result.push(s[i] + temp);
+					// reset temp
+					temp = 0;
+			} else {
+					// save current value
+					temp = temp + s[i];
+			}
+	}
+	return result;
+}
 // ---------------------------------------------------------
+// Function iteration
+// https://www.codewars.com/kata/54b679eaac3d54e6ca0008c9
+
+var createIterator = function (func, n) {
+  return function(v) {
+    for(var i = 0; i < n; i++) {
+        v = func(v);
+    }
+    return v;
+  };
+};
+
+var getDouble = function (n) {
+  return n + n;
+};
+
+// var doubleIterator = createIterator(getDouble, 1);
+// doubleIterator(3) // 6
+
+var getQuadruple = createIterator(getDouble, 2);
+
+getQuadruple(5) // 20
+
 // ---------------------------------------------------------
 // ---------------------------------------------------------
 // ---------------------------------------------------------
